@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step05_example3.html</title>
+    <style>
+        .box{
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+            margin: 0 auto;
+            cursor: crosshair;
+            position: relative;
+        }
+        .point{
+            width: 10px;
+            height: 10px;
+            background-color: yellowgreen;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            pointer-events: none; /* 마우스 이벤트를 받지 않도록 */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="point"></div>
+    </div>
+    <script>
+        /*
+            1. .box div 에 "mousemove" 이벤트가 일어 났을때 실행할 리스너 함수 등록
+            2. 리스너 함수 안에서 이벤트가 일어난곳의 좌표를 얻어낸다(offesetX, offsetY)
+            3. 해당 좌표를 .point div 의 top 과 left 에 반영하기
+        */
+        document.querySelector(".box").addEventListener("mousemove", (e)=>{
+            //이벤트가 일어난 곳의 상대좌표 얻어내기
+            const x=e.offsetX;
+            const y=e.offsetY;
+            // .point div 의 top 과 left 에 반영하기(css 조작)
+            document.querySelector(".point").style.left = `${x}px`;
+            document.querySelector(".point").style.top = `${y}px`;
+
+        });
+        
+    </script>
+</body>
+</html>

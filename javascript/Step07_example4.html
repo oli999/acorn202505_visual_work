@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step07_example4.html</title>
+    <style>
+        /* 여러 요소를 선택하는 다중 선택자 */
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse; /* 2중 경계선 방지 */
+        }
+        th, td{
+            width: 200px;
+        }
+        thead{
+            background-color: lightcyan;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>회원목록</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>이름</th>
+                    <th>주소</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>999</td>
+                    <td>아무게</td>
+                    <td>어디게</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button id="addBtn">회원추가</button>
+    <script>
+        const mem1 = {num:1, name:"김구라", addr:"노량진"};
+        //회원 추가 버튼을 눌렀을때 mem1 object 에 담긴 회원의 정보를 이용해서
+        //tbody 에 tr 을 하나 추가해 보세요.
+        // hint: .insertAdjacentHTML() 함수를 활용해서...
+        document.querySelector("#addBtn").addEventListener("click", ()=>{
+            const tr = `
+                <tr>
+                    <td>${mem1.num}</td>
+                    <td>${mem1.name}</td>
+                    <td>${mem1.addr}</td>
+                </tr>
+            `;
+            document.querySelector("tbody").insertAdjacentHTML("beforeend", tr);
+        });
+    </script>
+</body>
+</html>

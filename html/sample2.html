@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample2.html</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  section > h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+  }
+
+  section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  article {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+
+  article:hover {
+    transform: translateY(-5px);
+  }
+
+  article h3 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #444;
+  }
+
+  article img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+
+  article p {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 10px;
+  }
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <section>
+            <h2>갤러리 목록 입니다</h2>
+            <article>
+                <h3>사진 제목</h3>
+                <img src="https://picsum.photos/200/300.jpg">
+                <p>어쩌구 ... 저쩌구...</p>
+            </article>
+            <article>
+                <h3>사진 제목2</h3>
+                <img src="https://picsum.photos/200/300.jpg">
+                <p>어쩌구 ... 저쩌구...</p>
+            </article>
+            <article>
+                <h3>사진 제목3</h3>
+                <img src="https://picsum.photos/200/300.jpg">
+                <p>어쩌구 ... 저쩌구...</p>
+            </article>
+            <article>
+                <h3>사진 제목4</h3>
+                <img src="https://picsum.photos/200/300.jpg">
+                <p>어쩌구 ... 저쩌구...</p>
+            </article>
+        </section>
+    </div>
+</body>
+</html>

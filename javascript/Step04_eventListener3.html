@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step04_eventListener3.html</title>
+</head>
+<body>
+    <input type="text" id="inputName" placeholder="이름 입력...">
+    <ul id="nameList">
+
+    </ul>
+    <script>
+        /*
+            input 요소에 이름을 입력하고 enter 키를 누르면 입력한 이름이
+            ul 요소에 추가 되도록 프로그래밍 하기 
+        */
+        document.querySelector("#inputName").addEventListener("keyup", (e)=>{
+            // 만일 눌러진 키의 코드값이 13 이라면 (Enter 키를 눌렀다면)
+            if(e.keyCode == 13){
+                //입력한 이름을 읽어온다.
+                const name=document.querySelector("#inputName").value;
+                //li 요소를 만들어서
+                const li=document.createElement("li");
+                // innerText 로 입력한 이름을 출력하고
+                li.innerText=name;
+                // ul 의 자식요소로 추가하기
+                document.querySelector("#nameList").append(li);
+                //입력한 내용 삭제
+                document.querySelector("#inputName").value="";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step07_example2.html</title>
+</head>
+<body>
+    <button id="getInfo">정보 받아오기</button>
+    <p> 이름 : <strong id="name"></strong></p>
+    <h3>취미</h3>
+    <ul id="hobby">
+
+    </ul>
+    <script>
+        document.querySelector("#getInfo").addEventListener("click", ()=>{
+            fetch("info.json")
+            .then((res)=>{
+                return res.json();
+            })
+            .then((data)=>{
+                // data 는 { name:"xxx", hobby:[] } 형식의 object 이다.
+                console.log(data);
+                document.querySelector("#name").innerText = data.name;
+                // data.hobby 는 문자열 여러개가 들어 있는 배열이다.
+                /*
+                data.hobby.forEach((item)=>{
+                    const li = document.createElement("li");
+                    li.innerText = item;
+                    document.querySelector("#hobby").append(li);
+                });
+                */
+                //취미 정보를 가지고 있는 배열
+                const hobbys = data.hobby;
+                hobbys.forEach((item)=>{
+                    const li = document.createElement("li");
+                    li.innerText = item;
+                    document.querySelector("#hobby").append(li);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

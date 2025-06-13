@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step04_eventListener2.html</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="one"></div>
+    <input type="text" id="two">
+    <script>
+        document.querySelector("#one").addEventListener("mousemove", (e)=>{
+            // e 는 mouse event 정보를 담고있는 object 이다.
+
+            // object 에 담긴 정보를 이용해서 문자열 구성하기
+            const info = "x:" + e.offsetX +" y:"+e.offsetY;
+            // div 의 innerText 로 출력하기
+            document.querySelector("#one").innerText = info;
+
+        });
+
+        document.querySelector("#two").addEventListener("keydown", (e)=>{
+            console.log(e);
+        });
+
+    </script>
+</body>
+</html>

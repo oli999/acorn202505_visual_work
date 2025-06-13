@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "South Korea",
+    "imageUrl": "images/SouthKorea.png",
+    "capital": "Seoul"
+  },
+  {
+    "id": 2,
+    "name": "Spain",
+    "imageUrl": "images/Spain.png",
+    "capital": "Madrid"
+  },
+  {
+    "id": 3,
+    "name": "Sweden",
+    "imageUrl": "images/Sweden.png",
+    "capital": "Stockholm"
+  },
+  {
+    "id": 4,
+    "name": "Switzerland",
+    "imageUrl": "images/Switzerland.png",
+    "capital": "Bern"
+  },
+  {
+    "id": 5,
+    "name": "Thailand",
+    "imageUrl": "images/Thailand.png",
+    "capital": "Bangkok"
+  },
+  {
+    "id": 6,
+    "name": "Turkey",
+    "imageUrl": "images/Turkey.png",
+    "capital": "Ankara"
+  },
+  {
+    "id": 7,
+    "name": "UK",
+    "imageUrl": "images/UK.png",
+    "capital": "London"
+  },
+  {
+    "id": 8,
+    "name": "Ukraine",
+    "imageUrl": "images/Ukraine.png",
+    "capital": "Kyiv"
+  },
+  {
+    "id": 9,
+    "name": "Uruguay",
+    "imageUrl": "images/Uruguay.png",
+    "capital": "Montevideo"
+  },
+  {
+    "id": 10,
+    "name": "USA",
+    "imageUrl": "images/USA.png",
+    "capital": "Washington, D.C."
+  }
+]

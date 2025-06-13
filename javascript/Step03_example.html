@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step03_example.html</title>
+</head>
+<body>
+    <input type="text" id="inputName" placeholder="이름 입력...">
+    <button onclick="add()">추가</button>
+    <ul id="nameList">
+        <li>김구라</li>
+        <li>해골</li>
+    </ul>
+    <script>
+       
+        const add=()=>{
+            //1. 입력한 이름 읽어오기
+            const name=document.querySelector("#inputName").value;
+            //2. 빈 li 요소 만들기
+            const li=document.createElement("li");
+            //3. innerText 출력
+            li.innerText=name;
+            //4. ul 의 자식요소로 추가
+            document.querySelector("#nameList").append(li);
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step06_canvas2.html</title>
+    <style>
+        .panel{
+            width: 500px;
+            margin: 0 auto;
+            border: 1px solid blue;
+        }
+        canvas{
+            cursor: crosshair;
+            margin: 0 auto;
+            border: 1px solid red;
+            display: block; /* canvas 는 inline 요소임으로 block 요소로 변경 */
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <input type="color" id="inputColor">
+        <select id="selectWidth">
+            <option>2</option>
+            <option>4</option>
+            <option>6</option>
+            <option>8</option>
+            <option>10</option>
+            <option>12</option>
+            <option>14</option>
+            <option>16</option>
+            <option>18</option>
+            <option>20</option>
+        </select>
+    </div>
+    <canvas width="500" height="500" id="myCanvas"></canvas>
+    <script>
+        //canvas 의 참조값
+        const canvas=document.querySelector("#myCanvas");
+        //canvas 에 그림을 그릴수 있는 context 객체의 참조값 얻어내기
+        const ctx=canvas.getContext("2d");
+
+        //선택한 색생
+        let selectedColor="black";
+        let selectedWidth=2;
+
+        // width 가 변경 되었을때 실행할 리스너 함수 등록
+        document.querySelector("#selectWidth").addEventListener("change", (e)=>{
+            //이벤트가 일어난 바로 그요소의 value 값을 읽어와서 변수에 대입
+            selectedWidth=e.target.value;
+        });
+        
+        // 색상이 변경되었을때 실행할 리스너 함수 등록
+        document.querySelector("#inputColor").addEventListener("change", (e)=>{
+            //선택한 색상을 얻어와서 selectedColor 에 대입
+            //selectedColor = document.querySelector("#inputColor").value;
+            // e.target 은 "change" 이벤트가 일어난 바로 그요소의 참조값이다.
+            // 따라서 위의 code 는 아래와 같이 변경해도 동작한다.
+            selectedColor = e.target.value;
+        });
+
+        //현재 그림을 그리고 있는 상태인지 여부를 관리할 변수를 만들고 초기값(false) 를 대입한다.
+        let isDrawing=false;
+
+        document.querySelector("canvas").addEventListener("mousedown", (e)=>{
+            isDrawing=true;
+            //선의 색상
+            ctx.strokeStyle=selectedColor;
+            //선의 굵기
+            ctx.lineWidth=selectedWidth;
+            //선의 시작점과 끝점을 둥글게
+            ctx.lineCap="round";
+            //모서리 부분도 둥글게
+            ctx.lineJoin="round";
+            //선을 그릴 준비를 하고 시작점으로 이동
+            ctx.beginPath();
+            ctx.moveTo(e.offsetX, e.offsetY);
+        });
+        document.querySelector("canvas").addEventListener("mouseup", ()=>{
+            isDrawing=false;
+            //마무리 작업
+            ctx.closePath();
+        });
+        document.querySelector("canvas").addEventListener("mouseout", ()=>{
+            isDrawing=false;
+            //마무리 작업
+            ctx.closePath();
+        });
+
+        document.querySelector("canvas").addEventListener("mousemove", (e)=>{
+            if(isDrawing){
+                //이벤트가 일어난 곳의 상대좌표 얻어내기
+                const x=e.offsetX;
+                const y=e.offsetY;
+                ctx.lineTo(x, y);
+                ctx.stroke();
+            }
+        });
+        
+    </script>
+</body>
+</html>

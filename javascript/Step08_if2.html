@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step08_if2.html</title>
+</head>
+<body>
+    <input type="text" id="inputNum" placeholder="숫자 입력...">
+    <button id="checkBtn">판별하기</button>
+    <button id="checkBtn2">판별하기2</button>
+    <button id="checkBtn3">판별하기3</button>
+    <p id="result"></p>
+    <script>
+
+
+        /*
+            어떤 숫자를 입력받아서 해당 숫자가 짝수이면 짝수 입니다.
+            홀수면 홀수 입니다 를 출력 하려고 한다.
+        */
+        document.querySelector("#checkBtn3").addEventListener("click", ()=>{
+            //입력한 숫자를 읽어온다.
+            const num = document.querySelector("#inputNum").value;
+            //만일 입력한 숫자를 2로 나눈 나머지가 1이면 "홀수수입니다" 를 출력하고 
+            if(num%2 == 1){
+                document.querySelector("#result").innerText="홀수입니다";
+            }else{ // 그렇지 않으면 "짝수입니다" 를 출력
+                document.querySelector("#result").innerText="짝수입니다";   
+            }
+            
+        });
+
+        document.querySelector("#checkBtn2").addEventListener("click", ()=>{
+            //입력한 숫자를 읽어온다.
+            const num = document.querySelector("#inputNum").value;
+            //만일 입력한 숫자를 2로 나눈 나머지가 0이면 "짝수입니다" 를 출력하고 
+            if(num%2 == 0){
+                document.querySelector("#result").innerText="짝수입니다";
+            }else{ // 그렇지 않으면 "홀수입니다" 를 출력
+                document.querySelector("#result").innerText="홀수입니다";   
+            }
+            
+        });
+
+        document.querySelector("#checkBtn").addEventListener("click", ()=>{
+            //입력한 숫자를 읽어온다.
+            const num = document.querySelector("#inputNum").value;
+            //만일 입력한 숫자를 2로 나눈 나머지가 0 이면 "짝수입니다" 를 출력하기
+            if(num%2 == 0){
+                document.querySelector("#result").innerText="짝수입니다";
+            }
+            //만일 입력한 숫자를 2로 나눈 나머지가 1 이면 "홀수입니다" 를 출력하기
+            if(num%2 == 1){
+                document.querySelector("#result").innerText="홀수입니다";
+            }
+        });
+    </script>
+</body>
+</html>

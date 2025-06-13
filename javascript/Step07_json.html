@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step07_json.html</title>
+</head>
+<body>
+
+    <script>
+        /*
+            Java Script Object Notation 의 약자인 JSON 문자열에 대해서 알아보자 
+            - key 값은 반드시 " " (더블 따옴표) 로 감싸야 한다.
+            - value 가 될수 있는 데이터는 
+              1. 숫자 => 10, 20, 30 등의 숫자
+              2. 문자 => "aaa", "bbb", "ccc"
+              3. 논리 => true , false
+              4. { } => object
+              5. [ ] => array
+              6. null => 비워둘꺼면 null 
+            - array 단독 데이터도 가능하다 
+        */
+        const mem1 = {num:1, name:"김구라", addr:"노량진"};
+        // json 형식의 문자열은 간단히 실제 object 나 array 로 변경 가능하다 
+        const json1 = '{"num":2, "name":"해골", "addr":"행신동"}';
+        const json2 = '["김구라","해골","원숭이"]';
+        // json 형식의 문자열을 이용해서 실제 object 나 array 를 얻어내기
+        const result1 = JSON.parse(json1);
+        const result2 = JSON.parse(json2);
+        // object 나 array 를 json 형식의 문자열로 변경할수도 있다.
+        const result3 = JSON.stringify({num:3, name:"원숭이", addr:"동물원"});
+        const result4 = JSON.stringify([10, 20, 30]);
+    </script>
+</body>
+</html>

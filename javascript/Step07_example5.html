@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step07_example5.html</title>
+    <style>
+        /* 여러 요소를 선택하는 다중 선택자 */
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse; /* 2중 경계선 방지 */
+        }
+        th, td{
+            width: 200px;
+        }
+        thead{
+            background-color: lightcyan;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>회원목록</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>이름</th>
+                    <th>주소</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+    <button id="getBtn">회원목록 받아오기</button>
+    <script>
+        /*
+            1. 회원목록 받아오기 버튼을 누르면  
+            2. 서버에 members.json 을 요청을 하고
+            3. 응답되는 data 를 이용해서 tbody 에 tr 을 5개 추가해 보세요.
+        */
+        document.querySelector("#getBtn").addEventListener("click", ()=>{
+            fetch("members.json")
+            .then((res)=>{
+                return res.json();
+            })
+            .then((data)=>{
+                console.log(data);
+                // data 는 [{},{},{}...] 형식의 배열이다.
+                data.forEach((item)=>{
+                    // item 은 {num:x, name:"xxx", addr:"xxx"} 형식의 object 이다.
+                    const tr=`
+                        <tr>
+                            <td>${item.num}</td>
+                            <td>${item.name}</td>
+                            <td>${item.addr}</td>
+                        </tr>
+                    `;
+                    // tbody "beforeend" 위치에 끼워넣기
+                    document.querySelector("tbody").insertAdjacentHTML("beforeend", tr);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

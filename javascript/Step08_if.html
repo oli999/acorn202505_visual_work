@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step08_if.html</title>
+</head>
+<body>
+    <h1>단일 if 문 테스트</h1>
+    <input type="text" id="inputMsg" placeholder="메세지입력...">
+    <button id="sendBtn">전송</button>
+    <button id="sendBtn2">전송2</button>
+    <button id="sendBtn3">전송3</button>
+    <p>메세지는 10글자 이내로 입력하세요</p>
+    <p id="target"></p>
+    <script>
+
+        document.querySelector("#sendBtn3").addEventListener("click", ()=>{
+            //1. 입력한 문자열을 읽어온다.
+            const msg=document.querySelector("#inputMsg").value;
+            // if 문 블럭에서 실행할 code 가 1 line 이라면 {} 는 생략 가능하다
+            if(msg.length > 10) return; //함수를 여기서 종료해라!
+            
+            document.querySelector("#target").innerText = msg;
+        });
+
+        document.querySelector("#sendBtn2").addEventListener("click", ()=>{
+            //1. 입력한 문자열을 읽어온다.
+            const msg=document.querySelector("#inputMsg").value;
+            //2. 만일 10 글자를 초과 했다면 함수를 여기서 끝내기(return 하기)
+            if(msg.length > 10){
+                return; //함수를 여기서 종료해라!
+            }
+            document.querySelector("#target").innerText = msg;
+        });
+
+        document.querySelector("#sendBtn").addEventListener("click", ()=>{
+            //1. 입력한 문자열을 읽어온다.
+            const msg=document.querySelector("#inputMsg").value;
+            //2. 만일 10 글자 이내로 입력했다면 전송한다.
+            if(msg.length <= 10){
+                document.querySelector("#target").innerText = msg;
+            }
+        });
+    </script>
+</body>
+</html>

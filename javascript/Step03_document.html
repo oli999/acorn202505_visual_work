@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step03_document.html</title>
+</head>
+<body>
+    <p>p1</p>
+    <p>p2</p>
+    <p>p3</p>
+    <p>p4</p>
+    <p>p5</p>
+    <button onclick="change()">변경하기</button>
+    <button onclick="change2()">변경하기2</button>
+    <button onclick="change3()">변경하기3</button>
+    <script>
+
+        function change(){
+            //이 2줄의 코드가 언제 실행되는지 생각해 보세요.
+            document.querySelector("p").innerText="kimgura";
+            document.querySelector("p").style.color="red";
+        }
+        //익명의 함수를 만들어서 change2 라는 변수에 대입
+        let change2 = function(){
+            document.querySelector("p").innerText="monkey";
+            document.querySelector("p").style.color="yellow";
+        };
+        //화살표 함수를 만들어서 change3 라는 변수에 대입 
+        let change3 = ()=>{
+            document.querySelector("p").innerText="acorn";
+            document.querySelector("p").style.color="blue";
+        };
+
+    </script>
+</body>
+</html>

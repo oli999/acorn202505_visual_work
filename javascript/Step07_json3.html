@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step07_json3.html</title>
+</head>
+<body>
+    <button id="getBtn">이름 목록 받아오기</button>
+    <button id="getBtn2">이름 목록 받아오기2</button>
+    <ul>
+        
+    </ul>
+    <script>
+        document.querySelector("#getBtn2").addEventListener("click", ()=>{
+            fetch("names.json")
+            .then((res)=>{
+                //응답된 문자열이 json 형식이면 아래와 같이 리턴해준다
+                return res.json();
+            })
+            .then((data)=>{
+                //data 는 이미 JSON.parse() 작업이된 object or array 이다.
+                console.log(data);
+                //const names=data;
+                data.forEach((item)=>{
+                    const li=document.createElement("li");
+                    li.innerText=item;
+                    document.querySelector("ul").append(li);
+                });
+            });
+        });
+
+        document.querySelector("#getBtn").addEventListener("click", ()=>{
+            //fetch() 함수를 이용해서 페이지 전환없이 서버에 요청하기
+            fetch("http://localhost:5500/javascript/names.json")
+            .then((res)=>{
+                return res.text();
+            })
+            .then((data)=>{
+                //서버가 응답한 문자열이 data 에 들어있다 (json 형식의 문자열)
+                console.log(data);
+                //json 문자열을 실제 array 로 변경한다.
+                const names=JSON.parse(data);
+                names.forEach((item)=>{
+                    const li=document.createElement("li");
+                    li.innerText=item;
+                    document.querySelector("ul").append(li);
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>

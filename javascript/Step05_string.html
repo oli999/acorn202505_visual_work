@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step05_string.html</title>
+</head>
+<body>
+    <script>
+        //문자열 만드는 방법 3가지
+        const myName='김구라'; // single quotation
+        const yourName="해골"; // double quotation
+        const ourName=`원숭이` // backtic 
+
+        //문자열 연결
+        const result1 = '나의이름:'+myName;
+        const result2 = "너의이름:"+yourName;
+        // yourName 변수에 있는 내용을 가리킬수 없다
+        const result3 = "너의이름:yourName";
+        // backtic 안에서 ${ } 표현식을 이용하면 문자열을 좀더 편하게 구성할수 있다. 
+        const result4 = `우리의이름:${ourName}`;
+
+        const mem = {num:1, name:"kim", isMan:true};
+        // object 에 저장된 내용을 이용해서 문자열을 구성하기
+        const result5 = "번호:"+mem.num+" 이름:"+mem.name+" 남자여부:"+mem.isMan;
+        // backtic 활용!
+        const result6 = `번호:${mem.num} 이름:${mem.name} 남자여부:${mem.isMan}`;
+    </script>
+</body>
+</html>

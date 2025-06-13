@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step02_function2.html</title>
+</head>
+<body>
+    <h1>function 의 return 값</h1>
+    <script>
+        /*
+            let getGreeting = function(){};
+            let getGreeting = ()=>{};
+        */
+        function getGreeting(){
+            const greet = "안녕하세요 반갑습니다";
+            return greet;
+        }
+
+        function getSum(num1, num2){
+            const result=num1+num2;
+            return result;
+        }
+
+        const myUtil = {
+            version:"1.0",
+            hole:function(){
+                console.log("구멍을 뚤어요!"); 
+                console.log("윙~~~");
+                console.log("구멍 뚤기 성공!");
+            },
+            getGreeting:function(){
+                const greet="hello!";
+                return greet;
+            },
+            getMember:function(){
+                return {num:1, name:"김구라", addr:"노량진"};
+            }
+        };
+    </script>
+</body>
+</html>

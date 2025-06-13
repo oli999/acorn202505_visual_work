@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step06_canvas.html</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="500" height="500" id="myCanvas"></canvas>
+    <script>
+        //canvas 의 참조값
+        const canvas=document.querySelector("#myCanvas");
+        //canvas 에 그림을 그릴수 있는 context 객체의 참조값 얻어내기
+        const ctx=canvas.getContext("2d");
+
+        //직선 그려보기 
+        ctx.beginPath();
+        ctx.moveTo(100, 100);
+        ctx.lineTo(200, 200);
+        ctx.stroke();
+        ctx.closePath();
+
+        //굵은 직선 그려보기 
+        ctx.lineWidth=10;
+        ctx.beginPath();
+        ctx.moveTo(150, 100);
+        ctx.lineTo(250, 200);
+        ctx.stroke();
+        ctx.closePath();
+
+        //색상을 변경해서 직선 그려보기 
+        ctx.strokeStyle="yellowgreen";
+        ctx.beginPath();
+        ctx.moveTo(200, 100);
+        ctx.lineTo(300, 200);
+        ctx.stroke();
+        ctx.closePath();
+
+        //시작점과 끝점을 둥글게
+        ctx.lineCap="round";
+        ctx.beginPath();
+        ctx.moveTo(250, 100);
+        ctx.lineTo(350, 200);
+        ctx.stroke();
+        ctx.closePath();
+    </script>
+</body>
+</html>

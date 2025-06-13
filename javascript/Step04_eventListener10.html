@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step04_eventListener10.html</title>
+    <style>
+        /* class 속성의 값이 box 인 요소에 적용할 css */
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red; 
+            cursor: pointer;
+        }
+        .container{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">div1</div>
+        <div class="box">div2</div>
+        <div class="box">div3</div>
+        <div class="box">div4</div>
+        <div class="box">div5</div>
+    </div>
+    <script>
+        // class 속성의 값이 box 인 모든 요소의 참조값을 배열에 담아오기
+        const boxs = document.querySelectorAll(".box");
+
+        // .box div 에 "mouseover" 이벤트가 발생하면 배경색을 yellow 로
+        boxs.forEach((item)=>{
+            //item 은 div 의 참조값 
+            item.addEventListener("mouseover", ()=>{
+                item.style.backgroundColor="yellow";
+            });
+        });
+
+        // .box div 에 "mouseout" 이벤트가 발생하면 배경색을 white 로 변경하는 프로그래밍을 해 보세요.
+        boxs.forEach((item)=>{
+            //item 은 div 의 참조값 
+            item.addEventListener("mouseout", ()=>{
+                item.style.backgroundColor="white";
+            });
+        });
+    </script>
+</body>
+</html>

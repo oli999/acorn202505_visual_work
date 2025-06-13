@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step05_example4.html</title>
+    <style>
+        .box{
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+            margin: 0 auto;
+            cursor: crosshair;
+            position: relative;
+        }
+        .point{
+            border-radius: 50%;
+            position: absolute;
+            pointer-events: none; /* 마우스 이벤트를 받지 않도록 */
+        }
+        .panel{
+            width: 500px;
+            margin: 0 auto;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <input type="color" id="inputColor">
+        <select id="selectWidth">
+            <option>2</option>
+            <option>4</option>
+            <option>6</option>
+            <option>8</option>
+            <option>10</option>
+            <option>12</option>
+            <option>14</option>
+            <option>16</option>
+            <option>18</option>
+            <option>20</option>
+        </select>
+    </div>
+    <div class="box">
+        
+    </div>
+    <script>
+        //선택한 색생
+        let selectedColor="black";
+        let selectedWidth=2;
+
+        // width 가 변경 되었을때 실행할 리스너 함수 등록
+        document.querySelector("#selectWidth").addEventListener("change", (e)=>{
+            //이벤트가 일어난 바로 그요소의 value 값을 읽어와서 변수에 대입
+            selectedWidth=e.target.value;
+        });
+        
+        // 색상이 변경되었을때 실행할 리스너 함수 등록
+        document.querySelector("#inputColor").addEventListener("change", (e)=>{
+            //선택한 색상을 얻어와서 selectedColor 에 대입
+            //selectedColor = document.querySelector("#inputColor").value;
+            // e.target 은 "change" 이벤트가 일어난 바로 그요소의 참조값이다.
+            // 따라서 위의 code 는 아래와 같이 변경해도 동작한다.
+            selectedColor = e.target.value;
+        });
+
+        //현재 그림을 그리고 있는 상태인지 여부를 관리할 변수를 만들고 초기값(false) 를 대입한다.
+        let isDrawing=false;
+
+        document.querySelector(".box").addEventListener("mousedown", ()=>{
+            isDrawing=true;
+        });
+        document.querySelector(".box").addEventListener("mouseup", ()=>{
+            isDrawing=false;
+        });
+        document.querySelector(".box").addEventListener("mouseout", ()=>{
+            isDrawing=false;
+        });
+
+        document.querySelector(".box").addEventListener("mousemove", (e)=>{
+            if(isDrawing){
+                //이벤트가 일어난 곳의 상대좌표 얻어내기
+                const x=e.offsetX;
+                const y=e.offsetY;
+                const div=document.createElement("div");
+                div.classList.add("point");
+                div.style.top=`${y-selectedWidth/2}px`;
+                div.style.left=`${x-selectedWidth/2}px`;
+                //selectedColor 변수에 있는 내용을 배경색으로 활용
+                div.style.backgroundColor=selectedColor;
+                //selectedWidth 변수에 있는 내용을 width 와 height 에 반영
+                div.style.width=`${selectedWidth}px`;
+                div.style.height=`${selectedWidth}px`;
+
+                document.querySelector(".box").append(div);
+            }
+        });
+        
+    </script>
+</body>
+</html>

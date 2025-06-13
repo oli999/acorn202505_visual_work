@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step01_datatype4.html</title>
+</head>
+<body>
+    <h1>javascript 다양한 data type</h1>
+    <script>
+
+        // 특정 시점에 일괄 실행할 javascript 를 모아 둘수 있는 함수 만드는 방법 3 가지
+        
+        // printMsg 라는 이름의 함수 만들기
+        function printMsg(){
+            console.log("하나");
+            console.log("두울");
+            console.log("세엣");
+        }
+
+        // 이름이 없는 함수를 만들어서 printGreet 이라는 변수에 대입하기 
+        let printGreet = function(){
+            console.log("안녕하세요!");
+            console.log("반갑습니다");
+        };
+
+        // 화살표 함수를 만들어서 printNums 라는 변수에 대입하기 
+        let printNums = ()=>{
+            console.log(10);
+            console.log(20);
+            console.log(30);
+        };
+
+
+    </script>
+</body>
+</html>

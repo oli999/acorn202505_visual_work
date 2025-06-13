@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step06_json2.html</title>
+</head>
+<body>
+    <script>
+        // 좀더 복잡한 형식의 json 문자열 
+        const json1 = `
+        [
+            {"num":1, "name":"김구라", "isMan":true},
+            {"num":2, "name":"해골", "isMan":false},
+            {"num":3, "name":"원숭이", "isMan":true}
+        ]
+        `;
+        // json 문자열 작성 규칙에 맞지 않게 작성하면 .parse() 작업중에 에러가 발생한다.
+        const result1 = JSON.parse(json1);
+
+        const json2 = `{
+            "num":1,
+            "name":"김구라",
+            "hobby":["당구","테니스","..."],
+            "health":{
+                "weight":78,
+                "height":175,
+                "blood":"O"
+            }
+        }`;
+
+        const result2 = JSON.parse(json2);
+    </script>
+</body>
+</html>

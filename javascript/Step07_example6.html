@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step07_example6.html</title>
+</head>
+<body>
+    <div class="container">
+        <img src="images/SouthKorea.png">
+    </div>
+    <script>
+
+        const img2 = document.createElement("img");
+        img2.setAttribute("src", "images/Spain.png");
+        document.querySelector(".container").append(img2);
+
+        // .insertAdjacentHTML() 을 이용해서 Sweden.png 이미지를 .container 에 추가해 보세요.
+        const img3 = `<img src="images/Sweden.png">`;
+        document.querySelector(".container").insertAdjacentHTML("beforeend", img3);
+
+        // 변수, 상수, object 등에 들어 있는 문자열을 이용해서 src 속성의 value 구성하기 
+        const imageUrl = "images/Turkey.png";
+        const img4 = `<img src="${imageUrl}">`;
+        document.querySelector(".container").insertAdjacentHTML("beforeend", img4);
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step09_tryCatch.html</title>
+</head>
+<body>
+    <h1>javascript 에서 Error 처리하기</h1>
+    <input type="text" placeholder="json 문자열 입력" id="inputJson">
+    <button id="parseBtn">파싱하기</button>
+    <p id="result"></p>
+    <script>
+        document.querySelector("#parseBtn").addEventListener("click", ()=>{
+            //입력한 문자열을 읽어와서
+            const json = document.querySelector("#inputJson").value;
+            try{
+                //파싱한다
+                const data = JSON.parse(json);
+                console.log(data);
+                //결과를 출력
+                document.querySelector("#result").innerText="에러 없이 성공적으로 파싱했습니다.";
+            }catch(e){
+                //e.message 는 에러 메세지를 확인할수 있다.
+                console.log(e.message);
+                document.querySelector("#result").innerText=`에러 발생! 정보:${e.message}`;
+            }
+        });
+    </script>
+</body>
+</html>

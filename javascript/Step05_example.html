@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step05_example.html</title>
+    <style>
+        img{
+            width: 100px;
+        }
+        #one{
+            margin-left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <img id="one" src="https://picsum.photos/id/237/200/300"><br>
+    <img style="margin-left:100px;" src="https://picsum.photos/id/237/200/300"><br>
+    <img id="two" src="https://picsum.photos/id/237/200/300"><br>
+    <img id="three" src="https://picsum.photos/id/237/200/300"><br>
+    <img id="four" src="https://picsum.photos/id/237/200/300"><br>
+    <script>
+        //페이지 로딩 시점에 id 가 two 인 요소의 margin-left 값을 javascript 로 100px 로 부여하려면?
+        document.querySelector("#two").style.marginLeft = "100px";
+
+        // id 가 tree 인 요소를 클릭하면 margin-left 값을 100px 로 변경되도록 해보세요.
+        document.querySelector("#three").addEventListener("click", ()=>{
+            document.querySelector("#three").style.marginLeft = "100px";
+        });
+
+        let mLeft = 100;
+        // id 가 four 인 요소를 클릭하면  mLeft 변수 안에 있는 숫자가 해당 요소의 margin-left 가
+        // 되도록 해 보세요.
+        document.querySelector("#four").addEventListener("click", ()=>{
+            document.querySelector("#four").style.marginLeft = mLeft+"px"; // `${mLeft}px`
+        });
+
+    </script>
+</body>
+</html>

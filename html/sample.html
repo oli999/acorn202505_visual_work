@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample.html</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* 좌우로 가운데 정렬되는 컨테이너  */
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .header {
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border-radius: 8px;
+        }
+
+        .nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav ul li {
+            display: inline;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #3498db;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- header 구성하기 -->
+        <div class="header">
+            <h1>Acorn Academy 블로그</h1>
+            <p>프로그래밍과 웹 개발을 사랑하는 개발 자들의 이야기</p>
+        </div>
+        <!-- 이동에 관련된 nav 요소 구성 -->
+        <div class="nav">
+            <ul>
+                <li><a href="#">홈</a></li>
+                <li><a href="#">HTML</a></li>
+                <li><a href="#">CSS</a></li>
+                <li><a href="#">JavaScript</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
