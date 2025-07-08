@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step13_function.html</title>
+</head>
+<body>
+    <h1>다양한 모양의 함수 </h1>
+    <script>
+        function showInfo(num=0,name="default",addr="default"){    
+            console.log(`num : ${num} name : ${name} addr : ${addr}`);
+        }
+
+        showInfo();
+        showInfo(1,"임채호","성수")
+
+        function printMsgs(...args){
+            console.log(args);
+        }
+
+        arr = [1,2,3,4,5]
+        arr2 = ["a","b","c","d","e"]
+        printMsgs();
+        printMsgs("hi")
+        printMsgs(arr)
+        printMsgs(arr2);
+
+        const myObj = {
+            num : 1,
+            action : function(){
+                console.log("hi");
+            }
+        }
+
+        const yourObj = {
+            num:2,
+            action(){
+                console.log("ㅇㅇ")
+            },
+            fly(){
+                console.log("SS")
+            }
+            
+        }
+        myObj.action();
+        yourObj.action();
+        yourObj.fly();
+    </script>
+</body>
+</html>
