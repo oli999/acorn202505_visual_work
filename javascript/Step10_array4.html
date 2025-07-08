@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step10_array4.html</title>
+</head>
+<body>
+    <script>
+        const names=["김구라","해골","원숭이"];
+        //배열에 새로운 아이템 추가
+        names.push("주뎅이");
+        names.push("덩어리");
+        // 배열의 .concat() 함수는 item 이 추가된 새로운 배열을 리턴해 준다.
+        const names2=names.concat("추가1");
+        const names3=names.concat("추가2","추가3","추가4");
+        // spread 연산자를 이용해서 위와 동일한 작업을 할수도 있다.
+        const names4 = [...names, "나야나"]; // ...names 는 names 배열안에 저장된 아이템을 펼치는 역활을 한다 
+    </script>
+</body>
+</html>
