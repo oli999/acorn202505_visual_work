@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step14_promise4.html</title>
+</head>
+<body>
+    <h3>이미지 2개를 선택하세요</h3>
+    <input type="file" id="fileInput" accept="image/*" multiple>
+    <div id="preview"></div>
+    <script>
+        // FileReader를 Promise 로 감싸는 함수 (Promise 객체를 리턴하는 함수)
+        function readFile(file){
+            const promise = new Promise((resolve)=>{
+                //이안에서 비동기 동작을 하고 동작이 완료되면 resolve() 함수를 호출한다.
+                //호출하면서 필요시 매개 변수에 동작의 결과 데이터를 전달할수도 있다.
+                const reader=new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = ()=>{
+                    //resolve() 함수 호출하면서 읽은 결과 데이터 전달 
+                    resolve(reader.result);
+                };
+            });
+            return promise;
+        }
+
+        //이미지 파일을 선택했을때 실행할 함수 등록
+        document.querySelector("#fileInput").addEventListener("change", async (e)=>{
+            // e 는 발생한 이벤트에 대한 정보를 담고 있는 event object
+            // e.target 에는 "change" 이벤트가 발생한 바로 그 요소(input요소)의 참조값이 들어 있다.
+            // e.target.files 는 선택된 파일 객체가 들어 있는 파일 배열이다. 
+            const files = e.target.files;
+            /*
+                await Promise 객체
+
+                - await 예약어 우측에 있는 Promise 객체가 resolve 될때 까지 기다린다는 의미
+                - 해당 Promise 가 resolve 되면 결과 데이터가 리턴된다. 
+                - 리턴된 결과 데이터가 좌측의 변수나 상수에 대입된다.
+                - await 이 들어 있는 함수는 반드시 비동기(async) 함수로 만들어야한다.
+            */
+            try{
+                const data1 = await readFile(files[0]);
+                const img1 = `<img src="${data1}">`;
+                document.querySelector("#preview").insertAdjacentHTML("beforeend", img1);
+
+                const data2 = await readFile(files[1]);
+                const img2 = `<img src="${data2}">`;
+                document.querySelector("#preview").insertAdjacentHTML("beforeend", img2);
+            }catch(err){
+                console.log(err);
+            }
+        });
+        
+        async function test(){
+            console.log("test 함수 시작!");
+
+            const data = await new Promise((resolve)=>{
+                console.log("3초가 걸리는 작업 시작")
+                setTimeout(()=>{
+                    resolve("hello~");
+                }, 3000);
+            });
+            console.log("data:"+data);
+            console.log("test 함수 리턴!");
+        }
+
+        
+    </script>
+</body>
+</html>
