@@ -9,11 +9,17 @@
 			margin: 0;
 		}
 		.spacer{
-			/* default position 속성의 값은 static 이다. */
+			/* 
+				default position 속성의 값은 static 이다. 
+				위치 지정 불가 , 문서의 흐름에 따라 위치가 결정된다.
+			*/
 			position: static;
 			height: 300px;
 			background-color: #999;
 			border-bottom: 1px solid red;
+			/* static 은 top, left, right, bottom 속성이 무시 된다. */
+			top: 100px;
+			left : 100px;
 		}
 	</style>
 </head>

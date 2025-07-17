@@ -5,18 +5,18 @@
 	<title>Step08_PseudoElement.html</title>
 	<style>
 		/* 가상요소 선택자 */
-		p:first-letter{
+		p::first-letter{
 			font-weight: bold;
 			color: red;
 		}
-		#one:first-line{
+		#one::first-line{
 			background-color: yellow;
 		}
-		.quote:before{
+		.quote::before{
 			content:"'";
 			color: red;
 		}
-		.quote:after{
+		.quote::after{
 			content:"'";
 			color: blue;
 		}
