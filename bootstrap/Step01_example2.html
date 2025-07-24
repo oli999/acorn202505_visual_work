@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step01_example2.html</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</head>
+<body>
+    <!-- container 를 만들고 -->
+    <div class="container">
+        <!-- 폭을 100% 모두 사용하고 싶다면 그냥 여기에 작성하면 된다. -->
+        <h1>제목</h1>
+        <p>p1 입니다</p>
+        <!-- 폭을 50% 씩 사용하고 싶다면 -->
+        <div class="row"> <!-- 행을 만들고 -->
+            <div class="col"> <!-- 칼럼을 두개 만들면 50% 씩 폭을 사용 할수 있다. -->
+                <h2>제목2</h2>
+                <p>contents2</p>
+            </div>
+            <div class="col">
+                <h2>제목3</h2>
+                <p>contents3</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <h3>나의 이미지1</h3>
+                <img class="img-fluid" src="images/top01.jpg">
+            </div>
+            <div class="col">
+                <h3>나의 이미지2</h3>
+                <img class="img-fluid" src="images/top02.jpg">
+            </div>
+            <div class="col">
+                <h3>나의 이미지3</h3>
+                <img class="img-fluid" src="images/top03.jpg">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

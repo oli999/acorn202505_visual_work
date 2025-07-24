@@ -1,0 +1,17 @@
+/* 화면의 폭과 상관없이 적용할 css */
+.color{
+    background-color: yellow;
+}
+
+/* 화면의 폭이 최소 576px 이상일때 적용할 css */
+@media(min-width: 576px){
+    .color-sm{
+        background-color: yellowgreen;
+    }
+}
+
+@media(min-width: 768px){
+    .color-md{
+        background-color: blue;
+    }
+}
